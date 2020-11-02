@@ -156,7 +156,7 @@ img {
   justify-content: center;
 }
 .mainBackground {
-  background-image: url("stage.png");
+  background-image: url("/img/stage.png");
   background-position: revert;
   background-size: cover;
 }
@@ -404,6 +404,7 @@ h3 {
 }
 #saveScoreBtn {
   min-width: 250px;
+  z-index: 2;
 }
 form {
   margin-top: 5rem;
@@ -424,6 +425,7 @@ input {
   width: 250px;
   padding: 1.5rem;
   font-size: 24px;
+  z-index: 2;
   border: none;
   -webkit-box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
   box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
