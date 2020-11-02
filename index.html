@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="main.css" />
+    <title>Trivia</title>
+  </head>
+  <body>
+    <div class="mainBackground">
+      <div id="mainPage" class="">
+        <div class="container flex-column">
+          <div class="flex-center flex-column">
+            <h1 class="mainHeader">Your daily Quiz</h1>
+            <h3 id="selectErrorMessage"></h3>
+            <div class="custom-select" style="width: 300px">
+              <select name="" id="selectDiff">
+                <option value="" disabled selected>CHOOSE DIFFICULTY</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <button id="startGame" class="btn">Play</button>
+            <a href="/highscores.html" class="btn">Highscores</a>
+          </div>
+        </div>
+      </div>
+      <!-- Game overlay begins -->
+      <div id="loaderMain" class="container hidden">
+        <div id="loader2" class=""></div>
+      </div>
+      <div id="gamePage" class="hidden">
+        <div class="container flex-column">
+          <div class="hud flex-center">
+            <div class="hud__container">
+              <h3 class="hud__heading">Question</h3>
+              <div class="hud__text">
+                <div class="questionTracker">
+                  <div
+                    id="questionTracker"
+                    class="questionTracker__inner"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="hud__container">
+              <h3 class="hud__heading">Score</h3>
+              <div class="hud__text">
+                <p id="score">0</p>
+              </div>
+            </div>
+          </div>
+          <div id="loader" class="hidden"></div>
+          <div id="gameOverlay" class="">
+            <h2 id="question">This is a question</h2>
+            <div class="card flex-center">
+              <p class="card__choice">A</p>
+              <p class="card__answer" data-answer="1">Some kind of answer</p>
+            </div>
+            <div class="card flex-center">
+              <p class="card__choice">B</p>
+              <p class="card__answer" data-answer="2">Some kind of answer</p>
+            </div>
+            <div class="card flex-center">
+              <p class="card__choice">C</p>
+              <p class="card__answer" data-answer="3">Some kind of answer</p>
+            </div>
+            <div class="card flex-center">
+              <p class="card__choice">D</p>
+              <p class="card__answer" data-answer="4">Some kind of answer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="select.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
