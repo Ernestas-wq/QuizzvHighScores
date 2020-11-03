@@ -7,8 +7,6 @@ var username = document.getElementById("username");
 const mostRecentScore = localStorage.getItem("mostRecentScore") * 10;
 const highScoresScore = JSON.parse(localStorage.getItem("highScoresScore"));
 
-console.log(highScoresScore);
-
 const easyHighScores = JSON.parse(localStorage.getItem("easyHighScores")) || [];
 const mediumHighScores =
   JSON.parse(localStorage.getItem("mediumHighScores")) || [];
@@ -26,14 +24,12 @@ if (mostRecentScore >= 50) {
 }
 
 username.addEventListener("keyup", () => {
-  console.log(username.value);
   saveScoreBtn.disabled = !username.value;
 });
 
 // Save high scores
 const HIGH_SCORES_MAX = 5;
 saveHighScore = (e) => {
-  console.log("you clicked save");
   e.preventDefault();
   const score = {
     name: username.value,
@@ -41,19 +37,16 @@ saveHighScore = (e) => {
   };
 
   if (highScoresScore.difficulty == "easy") {
-    console.log("easy");
     easyHighScores.push(score);
     easyHighScores.sort((a, b) => b.score - a.score);
     easyHighScores.splice(HIGH_SCORES_MAX);
     localStorage.setItem("easyHighScores", JSON.stringify(easyHighScores));
   } else if (highScoresScore.difficulty == "medium") {
-    console.log("medium");
     mediumHighScores.push(score);
     mediumHighScores.sort((a, b) => b.score - a.score);
     mediumHighScores.splice(HIGH_SCORES_MAX);
     localStorage.setItem("mediumHighScores", JSON.stringify(mediumHighScores));
   } else if (highScoresScore.difficulty == "hard") {
-    console.log("hard");
     hardHighScores.push(score);
     hardHighScores.sort((a, b) => b.score - a.score);
     hardHighScores.splice(HIGH_SCORES_MAX);

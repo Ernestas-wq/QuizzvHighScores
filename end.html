@@ -39,32 +39,30 @@
           class="endContainer__botRight win hidden"
         />
 
-        <div class="container">
-          <div class="flex-center flex-column">
-            <h1>THE END</h1>
-            <img src="/img/defeat.gif" alt="" class="defeat hidden" />
-            <h2 id="finalScore"></h2>
-            <h2 id="finalMessage"></h2>
-            <a href="/index.html" class="btn">Try Again</a>
-            <form action="">
-              <h2>Submit highscore:</h2>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="username"
-              />
-              <button
-                class="btn"
-                type="submit"
-                id="saveScoreBtn"
-                onclick="saveHighScore(event)"
-                disabled
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+        <div class="flex-center flex-column">
+          <h1>THE END</h1>
+          <img src="/img/defeat.gif" alt="" class="defeat hidden" />
+          <h2 id="finalScore"></h2>
+          <h2 id="finalMessage"></h2>
+          <a href="/index.html" class="btn">Try Again</a>
+          <form action="">
+            <h2>Submit highscore:</h2>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="username"
+            />
+            <button
+              class="btn"
+              type="submit"
+              id="saveScoreBtn"
+              onclick="saveHighScore(event)"
+              disabled
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </div>

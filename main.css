@@ -408,6 +408,7 @@ h3 {
 }
 form {
   margin-top: 5rem;
+  margin-bottom: 5rem;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

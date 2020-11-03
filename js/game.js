@@ -10,7 +10,7 @@ const launchGame = document.getElementById("startGame");
 const mainLoader = document.getElementById("loaderMain");
 const difficulty = document.getElementById("selectDiff");
 const selectErrorMessage = document.getElementById("selectErrorMessage");
-let gameUrl = "https://opentdb.com/api.php?amount=10";
+let gameUrl = "https://opentdb.com/api.php?amount=10&type=multiple";
 let score = 0;
 let questionCounter = 0;
 let currentQuestion = {};
@@ -95,7 +95,6 @@ getQuestion = () => {
     answer.innerText = currentQuestion[number];
   });
   availableQuestions.splice(questionIndex, 1);
-  console.log(availableQuestions);
 };
 choices.forEach((item) => {
   item.addEventListener("click", (e) => {
