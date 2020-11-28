@@ -504,7 +504,8 @@ input::placeholder {
 }
 .home {
   position: absolute;
-  bottom: 55%;
+  bottom: 40%;
+  z-index: 2;
   left: 45%;
 }
 .bot {

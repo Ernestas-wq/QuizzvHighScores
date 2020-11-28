@@ -23,7 +23,7 @@ if (mostRecentScore >= 50) {
   finalMessage.innerHTML = "Better luck next time &#128012";
 }
 
-username.addEventListener("keyup", () => {
+username.addEventListener("keyup", function () {
   saveScoreBtn.disabled = !username.value;
 });
 

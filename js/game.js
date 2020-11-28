@@ -58,7 +58,7 @@ launchGame.addEventListener("click", () => {
     .catch((err) => {
       console.error(err);
     });
-
+  // Start game
   startGame = () => {
     score = 0;
     availableQuestions = [...questions];
@@ -66,7 +66,7 @@ launchGame.addEventListener("click", () => {
     getQuestion();
   };
 });
-
+// Paima klausima is reformatted question array
 const MAX_QUESTIONS = 10;
 const CORRECT_BONUS = 10;
 getQuestion = () => {
