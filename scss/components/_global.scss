@@ -1,0 +1,59 @@
+:root {
+  --bg_main: #264653;
+  --text_light: #f1faee;
+  --text_med: #53627c;
+  --text_dark: #003049;
+  --red: #e63946;
+  --darkred: #c3112d;
+  --orange: #ff8c00;
+  --green: #06d6a0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: var(--bg_main);
+}
+h1 {
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--orange);
+  text-align: center;
+}
+h2,
+h3 {
+  font-size: 4rem;
+  margin-top: 2rem;
+  color: var(--orange);
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  max-width: 1200px;
+}
+.container > * {
+  width: 100%;
+}
+.hidden {
+  display: none;
+}
+.btn {
+  @include myButton();
+}
+.btn:hover {
+  @include myButtonHover();
+}

@@ -1,0 +1,62 @@
+@mixin responsive-xsm() {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin responsive-sm() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin responsive-md() {
+  @media screen and (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin responsive-lg() {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+// Default button
+@mixin myButton() {
+  margin-top: 3rem;
+  font-size: 30px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--orange);
+  border-radius: 10px;
+  background: var(--text_light);
+  padding: 15px 50px;
+  max-width: 300px;
+  min-width: 250px;
+  text-align: center;
+  border: 1px solid var(--orange);
+  outline: none;
+}
+@mixin myButtonHover() {
+  cursor: pointer;
+  box-shadow: 0 5px 5px 0 rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+// Default loader
+@mixin myLoader() {
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  border: 1.6rem solid white;
+  border-radius: 50%;
+  border-top: 1.6rem solid var(--green);
+  width: 12rem;
+  height: 12rem;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}

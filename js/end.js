@@ -8,11 +8,10 @@ const mostRecentScore = localStorage.getItem("mostRecentScore") * 10;
 const highScoresScore = JSON.parse(localStorage.getItem("highScoresScore"));
 
 const easyHighScores = JSON.parse(localStorage.getItem("easyHighScores")) || [];
-const mediumHighScores =
-  JSON.parse(localStorage.getItem("mediumHighScores")) || [];
+const mediumHighScores = JSON.parse(localStorage.getItem("mediumHighScores")) || [];
 const hardHighScores = JSON.parse(localStorage.getItem("hardHighScores")) || [];
 
-finalScore.innerText = "Final score: " + mostRecentScore;
+finalScore.innerHTML = `Final score: <span>${mostRecentScore}</span>`;
 if (mostRecentScore >= 50) {
   winImages.forEach((image) => {
     finalMessage.innerHTML = "Not bad &#128170";

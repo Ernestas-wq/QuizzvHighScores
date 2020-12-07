@@ -1,0 +1,11 @@
+.header {
+  &__error {
+    text-align: center;
+    color: var(--red);
+    font-size: 40px;
+  }
+}
+#loader,
+#loader2 {
+  @include myLoader();
+}

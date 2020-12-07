@@ -1,0 +1,62 @@
+.custom-select {
+  position: relative;
+  margin-top: 3.5rem;
+  font-size: 30px;
+}
+.custom-select select {
+  display: none;
+}
+.select-selected {
+  font-weight: 500;
+  background-color: #fff;
+  font-size: 24px;
+}
+.select-selected:hover {
+  -webkit-box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  -webkit-transform: translateY(-0.1rem);
+  transform: translateY(-0.1rem);
+  -webkit-transition: -webkit-transform 150ms;
+  transition: -webkit-transform 150ms;
+  transition: transform 150ms;
+  transition: transform 150ms, -webkit-transform 150ms;
+}
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 17px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-color: var(--orange) transparent transparent transparent;
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent var(--orange) transparent;
+  top: 7px;
+}
+.select-items div,
+.select-selected {
+  color: var(--orange);
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+.select-items {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 20px;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
