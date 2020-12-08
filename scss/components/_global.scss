@@ -26,6 +26,9 @@ h3 {
   font-size: 4rem;
   margin-top: 2rem;
   color: var(--orange);
+  @include responsive-sm() {
+    font-size: 24px;
+  }
 }
 .flex-center {
   display: flex;

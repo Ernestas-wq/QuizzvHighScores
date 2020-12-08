@@ -4,30 +4,50 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 7rem;
+  @include responsive-sm() {
+    padding: 10px;
+  }
   &__heading {
     font-size: 35px;
     font-weight: 500;
+    @include responsive-sm() {
+      font-size: 24px;
+    }
   }
   &__text {
     font-size: 40px;
     font-weight: 500;
     color: var(--green);
+    @include responsive-sm() {
+      font-size: 30px;
+    }
   }
 }
 .questionTracker {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   border: 3px solid var(--green);
   height: 40px;
   width: 250px;
+  @include responsive-sm() {
+    height: 20px;
+  }
+
   &__inner {
     width: 0%;
     max-width: 100%;
     background: var(--green);
     height: 37px;
+    @include responsive-sm() {
+      height: 17px;
+    }
   }
 }
 // Questions
-
+#gameOverlay {
+  @include responsive-sm() {
+    padding: 10px;
+  }
+}
 .card {
   margin-top: 2rem;
   width: 100%;
@@ -37,12 +57,20 @@
     padding: 12px;
     background: var(--text_med);
     color: var(--text_light);
+    @include responsive-sm() {
+      font-size: 24px;
+      background: transparent;
+    }
   }
   &__answer {
     font-size: 30px;
     padding: 12px 12px 12px 20px;
     background: var(--text_light);
     width: 100%;
+    @include responsive-sm() {
+      font-size: 24px;
+      padding: 12px 4px;
+    }
   }
 }
 .correct {
@@ -50,4 +78,9 @@
 }
 .incorrect {
   background-color: var(--darkred);
+}
+.win {
+  @include responsive-sm() {
+    display: none;
+  }
 }

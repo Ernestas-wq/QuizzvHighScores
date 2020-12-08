@@ -44,6 +44,9 @@
     -webkit-box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     box-shadow: 0 0.1rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     outline: none;
+    @include responsive-sm() {
+      height: 40px;
+    }
   }
   input::placeholder {
     color: rgb(189, 172, 172);

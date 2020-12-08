@@ -36,11 +36,7 @@ launchGame.addEventListener("click", () => {
         };
         const answerChoices = [...loadedQuestion.incorrect_answers];
         finalQuestion.answer = Math.floor(Math.random() * 3) + 1;
-        answerChoices.splice(
-          finalQuestion.answer - 1,
-          0,
-          loadedQuestion.correct_answer
-        );
+        answerChoices.splice(finalQuestion.answer - 1, 0, loadedQuestion.correct_answer);
 
         answerChoices.forEach((item, index) => {
           finalQuestion[index + 1] = item;
@@ -89,10 +85,13 @@ getQuestion = () => {
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
+  currentQuestion.question = currentQuestion.question
+    .replaceAll("&quot;", '"')
+    .replaceAll("&#039;", "'");
   question.innerText = currentQuestion.question || {};
   choices.forEach((answer) => {
     const number = answer.dataset["answer"];
-    answer.innerText = currentQuestion[number];
+    answer.innerText = currentQuestion[number].replaceAll("&quot;", '"').replaceAll("&#039;", "'");
   });
   availableQuestions.splice(questionIndex, 1);
 };
@@ -100,8 +99,7 @@ choices.forEach((item) => {
   item.addEventListener("click", (e) => {
     const answerIndex = e.target.dataset["answer"];
 
-    const classToApply =
-      answerIndex == currentQuestion.answer ? "correct" : "incorrect";
+    const classToApply = answerIndex == currentQuestion.answer ? "correct" : "incorrect";
 
     if (classToApply == "correct") {
       score++;

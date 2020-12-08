@@ -36,6 +36,9 @@
   text-align: center;
   border: 1px solid var(--orange);
   outline: none;
+  @include responsive-sm() {
+    font-size: 24px;
+  }
 }
 @mixin myButtonHover() {
   cursor: pointer;

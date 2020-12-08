@@ -4,6 +4,9 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  @include responsive-sm() {
+    padding: 13px;
+  }
   &__card {
     margin-top: 4rem;
     display: flex;
@@ -22,6 +25,9 @@
     font-size: 30px;
     font-weight: 500;
     color: var(--green);
+    @include responsive-sm() {
+      font-size: 18px;
+    }
     &--yellow {
       color: #ffb703;
     }
@@ -33,5 +39,13 @@
     position: absolute;
     left: 40%;
     bottom: -100px;
+    @include responsive-sm() {
+      left: 20%;
+    }
+  }
+}
+img {
+  @include responsive-sm() {
+    display: none;
   }
 }
