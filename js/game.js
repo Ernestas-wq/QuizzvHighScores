@@ -17,57 +17,60 @@ let currentQuestion = {};
 let availableQuestions = [];
 let questions = [];
 
+const fetchQuestions = async (difficulty) => {
+  try {
+    // Waiting for difficulty and and fetching data from the API..
+    const res = await fetch(gameUrl + `&difficulty=${difficulty}`);
+    const data = await res.json();
+    let resultsArr = Array.from(data.results);
+    // Reformatting the question to display answer in a random spot
+    questions = resultsArr.map((loadedQuestion) => {
+      const finalQuestion = {
+        question: loadedQuestion.question,
+      };
+      const answerChoices = [...loadedQuestion.incorrect_answers];
+      finalQuestion.answer = Math.floor(Math.random() * 3) + 1;
+      answerChoices.splice(finalQuestion.answer - 1, 0, loadedQuestion.correct_answer);
+
+      answerChoices.forEach((item, index) => {
+        finalQuestion[index + 1] = item;
+      });
+      return finalQuestion;
+    });
+    // Loader logic
+    mainPage.classList.add("hidden");
+    mainLoader.classList.remove("hidden");
+    setTimeout(() => {
+      gamePage.classList.remove("hidden");
+      mainLoader.classList.add("hidden");
+      startGame();
+    }, 1000);
+  } catch (err) {
+    selectErrorMessage.innerText = "Sorry, something went wrong";
+  }
+};
+// Start the game
+startGame = () => {
+  score = 0;
+  availableQuestions = [...questions];
+  questionCounter = 0;
+  getQuestion();
+};
 launchGame.addEventListener("click", () => {
-  selectErrorMessage.innerText = "";
+  let diffValue = difficulty.value;
   if (difficulty.value.length == 0) {
     selectErrorMessage.innerText = "Please select difficulty!";
-
     return;
   }
-  gameUrl += `&difficulty=${difficulty.value}`;
-  fetch(gameUrl)
-    .then((res) => res.json())
-    .then((data) => {
-      var resultsArr = Array.from(data.results);
-      // Reformatting the question to display answer in a random spot
-      questions = resultsArr.map((loadedQuestion) => {
-        const finalQuestion = {
-          question: loadedQuestion.question,
-        };
-        const answerChoices = [...loadedQuestion.incorrect_answers];
-        finalQuestion.answer = Math.floor(Math.random() * 3) + 1;
-        answerChoices.splice(finalQuestion.answer - 1, 0, loadedQuestion.correct_answer);
-
-        answerChoices.forEach((item, index) => {
-          finalQuestion[index + 1] = item;
-        });
-        return finalQuestion;
-      });
-      mainPage.classList.add("hidden");
-      mainLoader.classList.remove("hidden");
-      setTimeout(() => {
-        gamePage.classList.remove("hidden");
-        mainLoader.classList.add("hidden");
-        startGame();
-      }, 1000);
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  // Start game
-  startGame = () => {
-    score = 0;
-    availableQuestions = [...questions];
-    questionCounter = 0;
-    getQuestion();
-  };
+  fetchQuestions(diffValue);
 });
+
 // Paima klausima is reformatted question array
 const MAX_QUESTIONS = 10;
 const CORRECT_BONUS = 10;
 getQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    // recent score naudoju paskutiniam display o hhscore perduot difficulty
+    // recent score  used to display finalScore and highHigh score for localStorage highscores
     gamePage.classList.add("hidden");
     mainLoader.classList.remove("hidden");
     mostRecentScore = score;
@@ -85,13 +88,18 @@ getQuestion = () => {
 
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
+  // API is returning strings with unwanted text, replacing it
   currentQuestion.question = currentQuestion.question
     .replaceAll("&quot;", '"')
-    .replaceAll("&#039;", "'");
+    .replaceAll("&#039;", "'")
+    .replaceAll("&amp;", "&");
   question.innerText = currentQuestion.question || {};
   choices.forEach((answer) => {
     const number = answer.dataset["answer"];
-    answer.innerText = currentQuestion[number].replaceAll("&quot;", '"').replaceAll("&#039;", "'");
+    answer.innerText = currentQuestion[number]
+      .replaceAll("&quot;", '"')
+      .replaceAll("&#039;", "'")
+      .replaceAll("&amp;", "&");
   });
   availableQuestions.splice(questionIndex, 1);
 };
