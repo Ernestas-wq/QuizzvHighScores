@@ -3,10 +3,10 @@ const mediumHighScoresList = document.getElementById("mediumHighScores");
 const hardHighScoresList = document.getElementById("hardHighScores");
 
 const easyHighScores = JSON.parse(localStorage.getItem("easyHighScores")) || [];
-const mediumHighScores =
-  JSON.parse(localStorage.getItem("mediumHighScores")) || [];
+const mediumHighScores = JSON.parse(localStorage.getItem("mediumHighScores")) || [];
 const hardHighScores = JSON.parse(localStorage.getItem("hardHighScores")) || [];
 
+// Mapping all high scores to html elements
 easyHighScoresList.innerHTML = easyHighScores
   .map((score) => {
     return `<li class="highscores__item">${score.name}-${score.score}</li>`;

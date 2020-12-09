@@ -37,7 +37,7 @@ const fetchQuestions = async (difficulty) => {
       });
       return finalQuestion;
     });
-    // Loader logic
+    // Main loader
     mainPage.classList.add("hidden");
     mainLoader.classList.remove("hidden");
     setTimeout(() => {
@@ -65,7 +65,7 @@ launchGame.addEventListener("click", () => {
   fetchQuestions(diffValue);
 });
 
-// Paima klausima is reformatted question array
+// We take a question from the reformatted array
 const MAX_QUESTIONS = 10;
 const CORRECT_BONUS = 10;
 getQuestion = () => {
@@ -103,19 +103,22 @@ getQuestion = () => {
   });
   availableQuestions.splice(questionIndex, 1);
 };
+
+// Adding event for each choice
+
 choices.forEach((item) => {
   item.addEventListener("click", (e) => {
     const answerIndex = e.target.dataset["answer"];
 
     const classToApply = answerIndex == currentQuestion.answer ? "correct" : "incorrect";
-
+    // Changing class to correct/incorrect answer
     if (classToApply == "correct") {
       score++;
       const currentScore = score * CORRECT_BONUS;
       scoreTracker.innerText = currentScore;
     }
     e.target.classList.add(classToApply);
-
+    // Game loader
     setTimeout(() => {
       gameOverlay.classList.add("hidden");
       questionLoader.classList.remove("hidden");
