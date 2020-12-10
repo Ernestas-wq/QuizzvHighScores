@@ -1,0 +1,25 @@
+{
+  "name": "QuizzHighScoresV2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ernestas-wq/QuizzvHighScores.git"
+  },
+  "keywords": [],
+  "author": "Ernestas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ernestas-wq/QuizzvHighScores/issues"
+  },
+  "homepage": "https://github.com/Ernestas-wq/QuizzvHighScores#readme"
+}
